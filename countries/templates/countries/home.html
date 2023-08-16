@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    table,
+    td,
+    th {
+        border: 1px solid;
+        padding: 5px 30px;
+    }
+    
+    table {
+        border-collapse: collapse;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th>Countries</th>
+            <th>Currencies</th>
+        </tr>
+
+        {% for i in response %}
+        <tr>
+            <td>{{i.name.common}}</td>
+            <td>
+                {% for currency_key, currency_info in i.currencies.items %} {{ currency_info.name }} / {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
