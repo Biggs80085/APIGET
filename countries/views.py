@@ -12,7 +12,7 @@ def home(request):
     for country_info in response:
         country_name = country_info['name']['common']
         currencies_info = country_info.get('currencies', {})
-        currencies_names = ',\n'.join(currency_info['name'] for currency_info in currencies_info.values())
+        currencies_names = ', '.join(currency_info['name'] for currency_info in currencies_info.values())
 
         countries = {
             "country": country_name,
